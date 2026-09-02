@@ -23,8 +23,14 @@ python3 -m http.server 8000   # → http://localhost:8000
 
 ## Публікація
 
-GitHub Pages з гілки `main`, корінь репозиторію. `CNAME` містить `kmarkovych.com`;
-до перемикання DNS робочою адресою є `https://<user>.github.io/<repo>/`.
+GitHub Pages з гілки `main`, корінь репозиторію `kmarkovych.github.io`
+(user-site → віддається з кореня, тому всі шляхи абсолютні).
+
+Кастомний домен ще НЕ підключений: файла `CNAME` у репо навмисно немає —
+з ним Pages одразу редиректив би на kmarkovych.com, DNS якого поки веде на
+інший хост. Порядок перемикання: у Cloudflare A-записи на IP GitHub Pages
+(185.199.108–111.153) або CNAME на kmarkovych.github.io → потім `echo
+kmarkovych.com > CNAME`, коміт, і в Settings → Pages увімкнути Enforce HTTPS.
 
 ## Дизайн
 
