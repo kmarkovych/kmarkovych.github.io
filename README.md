@@ -26,11 +26,12 @@ python3 -m http.server 8000   # → http://localhost:8000
 GitHub Pages з гілки `main`, корінь репозиторію `kmarkovych.github.io`
 (user-site → віддається з кореня, тому всі шляхи абсолютні).
 
-Кастомний домен ще НЕ підключений: файла `CNAME` у репо навмисно немає —
-з ним Pages одразу редиректив би на kmarkovych.com, DNS якого поки веде на
-інший хост. Порядок перемикання: у Cloudflare A-записи на IP GitHub Pages
-(185.199.108–111.153) або CNAME на kmarkovych.github.io → потім `echo
-kmarkovych.com > CNAME`, коміт, і в Settings → Pages увімкнути Enforce HTTPS.
+Кастомний домен: `kmarkovych.com` (файл `CNAME`). DNS у Cloudflare, A-записи
+`@` вказують прямо на GitHub Pages (185.199.108–111.153) у режимі **DNS only** —
+проксі свідомо вимкнено: його WAF раніше віддавав 403 краулерам сторів, а без
+проксі GitHub сам випускає сертифікат і працює Enforce HTTPS. Пошта
+(support@kmarkovych.com) — Cloudflare Email Routing, MX-записи проксі не
+стосуються.
 
 ## Дизайн
 
