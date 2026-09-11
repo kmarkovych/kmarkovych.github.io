@@ -375,3 +375,43 @@ main section:last-of-type { border-bottom: 0; }
 @media (prefers-reduced-motion: reduce) {
   * { animation: none !important; transition: none !important; }
 }
+
+/* Consent banner: hairline card on the paper, same language as the rest
+   of the site. Sits above the fold only until it is answered once. */
+.consent {
+  position: fixed;
+  left: var(--pad-x);
+  right: var(--pad-x);
+  bottom: 1rem;
+  z-index: 20;
+  margin-inline: auto;
+  max-width: 46rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 1.25rem;
+  background: var(--paper-2);
+  border: 1px solid var(--rule-strong);
+  box-shadow: 0 1px 0 var(--rule);
+}
+
+.consent p {
+  margin: 0;
+  flex: 1 1 20rem;
+  font-size: var(--text-sm);
+  color: var(--ink-2);
+}
+
+.consent-actions {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.consent .btn {
+  font-size: var(--text-sm);
+  cursor: pointer;
+  font-family: inherit;
+}
